@@ -1,0 +1,8 @@
+.style-scope.ytd-video-masthead-ad-primary-video-renderer, 
+.style-scope.ytd-video-masthead-ad-v3-renderer,
+.style-scope.ytd-ad-slot-renderer,
+#player-ads
+ytd-action-companion-ad-renderer
+{
+	display: none;
+}
