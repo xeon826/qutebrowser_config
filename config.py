@@ -398,6 +398,7 @@
 ## Background color of unselected even tabs.
 ## Type: QtColor
 # c.colors.tabs.even.bg = 'darkgrey'
+c.colors.tabs.even.bg = '#1A1A1A'
 
 ## Foreground color of unselected even tabs.
 ## Type: QtColor
@@ -427,6 +428,7 @@
 ## Background color of unselected odd tabs.
 ## Type: QtColor
 # c.colors.tabs.odd.bg = 'grey'
+c.colors.tabs.odd.bg = '#292929'
 
 ## Foreground color of unselected odd tabs.
 ## Type: QtColor
@@ -471,6 +473,7 @@
 ## Foreground color of selected even tabs.
 ## Type: QtColor
 # c.colors.tabs.selected.even.fg = 'white'
+c.colors.tabs.selected.even.fg = '#687BAD'
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
@@ -479,6 +482,7 @@
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
 # c.colors.tabs.selected.odd.fg = 'white'
+c.colors.tabs.selected.odd.fg = '#687BAD'
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
@@ -2190,6 +2194,8 @@ config.bind('tt', 'open -t')
 # config.bind('D', 'tab-close -o')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
+config.bind('<Ctrl-Alt-h>', 'scroll-to-perc 0 -x')
+config.bind('<Ctrl-Alt-l>', 'scroll-to-perc 100 -x')
 # config.bind('H', 'back')
 config.bind('K', 'tab-next')
 config.bind('J', 'tab-prev')
@@ -2312,6 +2318,7 @@ config.bind('J', 'tab-prev')
 # config.bind('yy', 'yank')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
+config.bind(',p', 'spawn --userscript qute-pass')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')
@@ -2392,6 +2399,7 @@ config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
 # config.bind('<Escape>', 'mode-leave', mode='insert')
 # config.bind('<Shift-Escape>', 'fake-key <Escape>', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
+config.bind('<Alt-Q>', 'spawn --userscript qute-pass', mode='insert')
 
 ## Bindings for passthrough mode
 # config.bind('<Shift-Escape>', 'mode-leave', mode='passthrough')

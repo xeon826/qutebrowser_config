@@ -6,7 +6,5 @@
 
 config_version: 2
 settings:
-  bindings.commands:
-    global:
-      normal:
-        <Ctrl+k>: completion-item-focus next
+  content.geolocation:
+    https://www.google.com: true
