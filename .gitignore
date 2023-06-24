@@ -1,1 +1,4 @@
 autoconfig.yml
+.mypy_cache
+qsettings
+bookmarks/urls

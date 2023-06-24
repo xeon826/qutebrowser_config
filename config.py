@@ -824,7 +824,7 @@ c.colors.tabs.selected.odd.fg = '#687BAD'
 ##   - true
 ##   - false
 ##   - ask
-# c.content.geolocation = 'ask'
+c.content.geolocation = True
 
 ## Value to send in the `Accept-Language` header. Note that the value
 ## read from JavaScript is always the global value.
@@ -2319,6 +2319,7 @@ config.bind('J', 'tab-prev')
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
 config.bind(',p', 'spawn --userscript qute-pass')
+config.bind('<Alt-D>', 'spawn yt-dlp {url} -P /home/dan/Music/')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')

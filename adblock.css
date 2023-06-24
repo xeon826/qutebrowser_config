@@ -4,7 +4,13 @@
 #player-ads
 ytd-action-companion-ad-renderer,
 .js-consent-banner,
-#adBlockerModal
+#adBlockerModal,
+[data-text-ad],
+[dontfo],
+[donto],
+.dns_box,
+ytd-reel-shelf-renderer,
+[target-id="engagement-panel-ads"]
 {
 	display: none;
 }
