@@ -82,6 +82,7 @@
 ## Background color of the completion widget category headers.
 ## Type: QssColor
 # c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #888888, stop:1 #505050)'
+c.colors.completion.category.bg = '#505050'
 
 ## Bottom border color of the completion widget category headers.
 ## Type: QssColor
@@ -98,6 +99,8 @@
 ## Background color of the completion widget for even rows.
 ## Type: QssColor
 # c.colors.completion.even.bg = '#333333'
+c.colors.completion.even.bg = '#1A1A1A'
+
 
 ## Text color of the completion widget. May be a single color to use for
 ## all columns or a list of three colors, one for each column.
@@ -107,18 +110,23 @@
 ## Background color of the selected completion item.
 ## Type: QssColor
 # c.colors.completion.item.selected.bg = '#e8c000'
+c.colors.completion.item.selected.bg = '#000000'
 
 ## Bottom border color of the selected completion item.
 ## Type: QssColor
 # c.colors.completion.item.selected.border.bottom = '#bbbb00'
+c.colors.completion.item.selected.border.bottom = '#6A95DF'
 
 ## Top border color of the selected completion item.
 ## Type: QssColor
 # c.colors.completion.item.selected.border.top = '#bbbb00'
+c.colors.completion.item.selected.border.top = '#000000'
 
 ## Foreground color of the selected completion item.
 ## Type: QtColor
 # c.colors.completion.item.selected.fg = 'black'
+c.colors.completion.item.selected.fg = '#6A95DF'
+
 
 ## Foreground color of the matched text in the selected completion item.
 ## Type: QtColor
@@ -131,6 +139,8 @@
 ## Background color of the completion widget for odd rows.
 ## Type: QssColor
 # c.colors.completion.odd.bg = '#444444'
+c.colors.completion.odd.bg = '#292929'
+
 
 ## Color of the scrollbar in the completion view.
 ## Type: QssColor
@@ -473,7 +483,7 @@ c.colors.tabs.odd.bg = '#292929'
 ## Foreground color of selected even tabs.
 ## Type: QtColor
 # c.colors.tabs.selected.even.fg = 'white'
-c.colors.tabs.selected.even.fg = '#687BAD'
+c.colors.tabs.selected.even.fg = '#6A95DF'
 
 ## Background color of selected odd tabs.
 ## Type: QtColor
@@ -482,7 +492,7 @@ c.colors.tabs.selected.even.fg = '#687BAD'
 ## Foreground color of selected odd tabs.
 ## Type: QtColor
 # c.colors.tabs.selected.odd.fg = 'white'
-c.colors.tabs.selected.odd.fg = '#687BAD'
+c.colors.tabs.selected.odd.fg = '#6A95DF'
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
