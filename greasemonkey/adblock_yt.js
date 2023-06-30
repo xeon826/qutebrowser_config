@@ -32,7 +32,6 @@ var ranQuery = false,
   ad = [...document.querySelectorAll(".ad-showing")][0],
   video = document.querySelector("video"), videoId = false, originalVideoId = false;
 setInterval(async () => {
-  console.log("this was run");
   ad = [...document.querySelectorAll(".ad-showing")][0];
 
   video = document.querySelector("video");
