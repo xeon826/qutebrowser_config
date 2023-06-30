@@ -1705,6 +1705,7 @@ c.content.user_stylesheets = ['~/.config/qutebrowser/adblock.css']
 ## negatively impact start-up time.
 ## Type: Bool
 # c.qt.workarounds.remove_service_workers = False
+c.qt.workarounds.remove_service_workers = True
 
 ## When/how to show the scrollbar.
 ## Type: String
