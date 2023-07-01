@@ -30,17 +30,22 @@ setInterval(() => {
 var ranQuery = false,
   segments = [],
   ad = [...document.querySelectorAll(".ad-showing")][0],
-  video = document.querySelector("video"), videoId = false, originalVideoId = false;
+  video = document.querySelector("video"),
+  videoId = false,
+  originalVideoId = false;
 setInterval(async () => {
   ad = [...document.querySelectorAll(".ad-showing")][0];
 
   video = document.querySelector("video");
   // console.log('ad', ad, 'video', typeof video !== 'undefined', 'ranQuery', ranQuery)
 
-  videoId = getQueryVariable('v')
-  if ((getQueryVariable("v") && !ad && !ranQuery) || (originalVideoId && originalVideoId != videoId && videoId)) {
+  videoId = getQueryVariable("v");
+  if (
+    (getQueryVariable("v") && !ad && !ranQuery) ||
+    (originalVideoId && originalVideoId != videoId && videoId)
+  ) {
     ranQuery = true;
-    originalVideoId = videoId;  
+    originalVideoId = videoId;
     segments = await getSegments(getQueryVariable("v"));
   }
   if (segments.length && !ad) {
@@ -61,10 +66,16 @@ setInterval(async () => {
 
 async function getSegments(videoId) {
   console.log("GET SEGMENTS");
-  const response = await fetch(
-    "https://sponsor.ajay.app/api/skipSegments?videoID=" + videoId
-  );
-  const jsonData = await response.json();
+  var jsonData = [];
+  try {
+    var response = await fetch(
+      "https://sponsor.ajay.app/api/skipSegments?videoID=" + videoId
+    );
+    var jsonData = await response.json();
+  } catch (e) {
+    console.log("no segments");
+  }
+  console.log("segments", jsonData);
   return jsonData;
 }
 
