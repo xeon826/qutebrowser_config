@@ -14,3 +14,7 @@ ytd-reel-shelf-renderer,
 {
 	display: none;
 }
+
+body > pre:nth-child(1) {
+        color: white
+}
