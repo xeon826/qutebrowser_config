@@ -11,6 +11,8 @@ ytd-action-companion-ad-renderer,
 .dns_box,
 ytd-reel-shelf-renderer,
 [target-id="engagement-panel-ads"]
+[data-adclicklocation]
+[data-before-content="advertisement"]
 {
 	display: none;
 }
