@@ -355,6 +355,7 @@ c.colors.completion.odd.bg = '#292929'
 ## Type: QssColor
 # c.colors.statusbar.normal.fg = 'white'
 
+config.unbind('<Ctrl-v>', mode='normal')
 ## Background color of the statusbar in passthrough mode.
 ## Type: QssColor
 # c.colors.statusbar.passthrough.bg = 'darkblue'
