@@ -2172,6 +2172,8 @@ c.url.start_pages = [c.url.default_page]
 # config.bind('<Ctrl-B>', 'scroll-page 0 -1')
 # config.bind('<Ctrl-D>', 'scroll-page 0 0.5')
 # config.bind('<Ctrl-F5>', 'reload -f')
+config.bind('<Space>', 'scroll-page 0 1', mode='normal')
+config.bind('<Shift-Space>', 'scroll-page 0 -1', mode='normal')
 # config.bind('<Ctrl-F>', 'scroll-page 0 1')
 # config.bind('<Ctrl-N>', 'open -w')
 # config.bind('<Ctrl-PgDown>', 'tab-next')
