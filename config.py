@@ -812,7 +812,7 @@ c.colors.tabs.selected.odd.fg = '#6A95DF'
 
 ## Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
-# c.content.dns_prefetch = True
+c.content.dns_prefetch = False
 
 ## Expand each subframe to its contents. This will flatten all the frames
 ## to become one scrollable page.
@@ -2172,8 +2172,11 @@ c.url.start_pages = [c.url.default_page]
 # config.bind('<Ctrl-B>', 'scroll-page 0 -1')
 # config.bind('<Ctrl-D>', 'scroll-page 0 0.5')
 # config.bind('<Ctrl-F5>', 'reload -f')
-config.bind('<Space>', 'scroll-page 0 1', mode='normal')
-config.bind('<Shift-Space>', 'scroll-page 0 -1', mode='normal')
+
+# page down/up
+# config.bind('<Space>', 'scroll-page 0 1', mode='normal')
+# config.bind('<Shift-Space>', 'scroll-page 0 -1', mode='normal')
+
 # config.bind('<Ctrl-F>', 'scroll-page 0 1')
 # config.bind('<Ctrl-N>', 'open -w')
 # config.bind('<Ctrl-PgDown>', 'tab-next')
@@ -2211,8 +2214,10 @@ config.bind('tt', 'open -t')
 config.bind('<Ctrl-Alt-h>', 'scroll-to-perc 0 -x')
 config.bind('<Ctrl-Alt-l>', 'scroll-to-perc 100 -x')
 # config.bind('H', 'back')
-config.bind('K', 'tab-next')
-config.bind('J', 'tab-prev')
+
+# config.bind('K', 'tab-next')
+# config.bind('J', 'tab-prev')
+
 # config.bind('L', 'forward')
 # config.bind('M', 'bookmark-add')
 # config.bind('N', 'search-prev')

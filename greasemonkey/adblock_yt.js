@@ -10,6 +10,7 @@
 // @match           https://m.youtube.com/*
 // @match           https://music.youtube.com/*
 // ==/UserScript==
+
 setInterval(() => {
   const btn = document.querySelector(
     ".videoAdUiSkipButton,.ytp-ad-skip-button"
@@ -26,7 +27,6 @@ setInterval(() => {
   }
 }, 50);
 
-// skip sponsors
 var ranQuery = false,
   segments = [],
   ad = [...document.querySelectorAll(".ad-showing")][0],
@@ -37,7 +37,6 @@ setInterval(async () => {
   ad = [...document.querySelectorAll(".ad-showing")][0];
 
   video = document.querySelector("video");
-  // console.log('ad', ad, 'video', typeof video !== 'undefined', 'ranQuery', ranQuery)
 
   videoId = getQueryVariable("v");
   if (
@@ -89,4 +88,54 @@ function getQueryVariable(variable) {
     }
   }
   return false;
+}
+setInterval(async () => {
+  var clickbaitThumbnails = document.querySelectorAll(
+    "#thumbnail > yt-image:not(.fixed) > img:not(.fixed)"
+  );
+  if (clickbaitThumbnails.length) {
+    console.log("THERE ARE CLICKBAIT THUMBNAILS");
+    clickbaitThumbnails.forEach(async (thumb) => {
+      try {
+        var thumbGrandparent = thumb.parentElement.parentElement;
+        var videoId =
+          thumbGrandparent.hasAttribute("href") &&
+          thumbGrandparent.getAttribute("href").includes("=")
+            ? thumb.parentElement.parentElement
+                .getAttribute("href")
+                .split("=")[1]
+            : thumbGrandparent.getAttribute("href").split("/")[2];
+        var new_img = thumb.cloneNode(true);
+        thumb.parentElement.classList.add("fixed");
+        thumb.parentElement.replaceChild(new_img, thumb);
+      } catch (e) {
+        console.log("error", e);
+        console.log("thumb", thumb);
+        console.log("thumbGrandparent", thumbGrandparent);
+      }
+      const apiUrl =
+        "https://dearrow-thumb.ajay.app/api/v1/getThumbnail?videoID=" + videoId;
+
+      fetch(apiUrl)
+        .then((response) => response.blob())
+        .then((blob) => {
+          const imageUrl = URL.createObjectURL(blob);
+          new_img.src = imageUrl;
+          new_img.style.visibility = "visible";
+        })
+        .catch((error) => console.error("Error:", error));
+    });
+  }
+}, 1000);
+function hexToBase64(str) {
+  return btoa(
+    String.fromCharCode.apply(
+      null,
+      str
+        .replace(/\r|\n/g, "")
+        .replace(/([\da-fA-F]{2}) ?/g, "0x$1 ")
+        .replace(/ +$/, "")
+        .split(" ")
+    )
+  );
 }
