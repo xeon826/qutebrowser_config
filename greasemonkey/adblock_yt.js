@@ -89,44 +89,72 @@ function getQueryVariable(variable) {
   }
   return false;
 }
-setInterval(async () => {
-  var clickbaitThumbnails = document.querySelectorAll(
-    "#thumbnail > yt-image:not(.fixed) > img:not(.fixed)"
-  );
-  if (clickbaitThumbnails.length) {
-    console.log("THERE ARE CLICKBAIT THUMBNAILS");
-    clickbaitThumbnails.forEach(async (thumb) => {
-      try {
-        var thumbGrandparent = thumb.parentElement.parentElement;
-        var videoId =
-          thumbGrandparent.hasAttribute("href") &&
-          thumbGrandparent.getAttribute("href").includes("=")
-            ? thumb.parentElement.parentElement
-                .getAttribute("href")
-                .split("=")[1]
-            : thumbGrandparent.getAttribute("href").split("/")[2];
-        var new_img = thumb.cloneNode(true);
-        thumb.parentElement.classList.add("fixed");
-        thumb.parentElement.replaceChild(new_img, thumb);
-      } catch (e) {
-        console.log("error", e);
-        console.log("thumb", thumb);
-        console.log("thumbGrandparent", thumbGrandparent);
-      }
-      const apiUrl =
-        "https://dearrow-thumb.ajay.app/api/v1/getThumbnail?videoID=" + videoId;
 
-      fetch(apiUrl)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const imageUrl = URL.createObjectURL(blob);
-          new_img.src = imageUrl;
-          new_img.style.visibility = "visible";
-        })
-        .catch((error) => console.error("Error:", error));
-    });
+// setInterval(async () => {
+//   var clickbaitThumbnails = document.querySelectorAll(
+//     "#thumbnail[href] > yt-image > img:not(.fixed)"
+//   );
+//   if (clickbaitThumbnails.length) {
+//     console.log("THERE ARE CLICKBAIT THUMBNAILS");
+//     clickbaitThumbnails.forEach(async (thumb) => {
+//       try {
+//         var thumbGrandparent = thumb.parentElement.parentElement;
+//         var new_img = thumb.cloneNode(true);
+//         var videoId =
+//           thumbGrandparent.hasAttribute("href") &&
+//           thumbGrandparent.getAttribute("href").includes("=")
+//             ? thumbGrandparent.getAttribute("href").split("=")[1]
+//             : thumbGrandparent.getAttribute("href").split("/")[2];
+//         const apiUrl =
+//           "https://dearrow-thumb.ajay.app/api/v1/getThumbnail?videoID=" +
+//           videoId;
+//         var imgUrl = await fetchImage(apiUrl);
+//         if (!imgUrl) {
+// 		  thumb.classList.add('fixed')
+//           return;
+//         }
+//         new_img.src = imgUrl;
+//         new_img.classList.add("fixed");
+//         new_img.style.visibility = "visible";
+//         thumb.parentElement.replaceChild(new_img, thumb);
+//       } catch (e) {
+//         console.log("error", e);
+//         console.log(
+//           "grandparent has href",
+//           thumbGrandparent.hasAttribute(href)
+//         );
+//         console.log("thumb", thumb);
+//         console.log("thumbGrandparent", thumbGrandparent);
+//       }
+//       // thumb.parentElement.replaceChild(new_img, thumb);
+
+//       // fetch(apiUrl)
+//       // .then((response) => response.blob())
+//       // .then((blob) => {
+//       //   const imageUrl = URL.createObjectURL(blob);
+//       //   new_img.src = imageUrl;
+//       //   new_img.style.visibility = "visible";
+//       // })
+//       // .catch((error) => console.error("Error:", error));
+//     });
+//   }
+// }, 1000);
+
+async function fetchImage(apiUrl) {
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      // throw new Error("Network response was not OK");
+      return false;
+    }
+    const myBlob = await response.blob();
+    var imgUrl = URL.createObjectURL(myBlob);
+  } catch (error) {
+    console.error("There has been a problem with your fetch operation:", error);
+    return false;
   }
-}, 1000);
+  return imgUrl;
+}
 function hexToBase64(str) {
   return btoa(
     String.fromCharCode.apply(

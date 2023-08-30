@@ -897,6 +897,8 @@ c.content.geolocation = True
 ## is always allowed.
 ## Type: Bool
 # c.content.javascript.can_access_clipboard = False
+# c.javascript.clipboard = True
+c.content.javascript.clipboard = 'access'
 
 ## Allow JavaScript to close tabs.
 ## Type: Bool
@@ -1108,7 +1110,7 @@ c.content.geolocation = True
 ##   - ask-block-thirdparty: Ask how to proceed for normal page loads, but silently block resource loads.
 ##   - block: Automatically block loading on certificate errors.
 ##   - load-insecurely: Force loading pages despite certificate errors. This is *insecure* and should be avoided. Instead of using this, consider fixing the underlying issue or importing a self-signed certificate via `certutil` (or Chromium) instead.
-# c.content.tls.certificate_errors = 'ask'
+c.content.tls.certificate_errors = 'block'
 
 ## How navigation requests to URLs with unknown schemes are handled.
 ## Type: String
